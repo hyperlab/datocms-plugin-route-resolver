@@ -1,0 +1,71 @@
+{
+  "name": "datocms-plugin-route-resolver",
+  "version": "1.0.0",
+  "homepage": "https://github.com/hyperlab/datocms-plugin-route-resolver",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hyperlab/datocms-plugin-route-resolver"
+  },
+  "keywords": [
+    "datocms",
+    "datocms-plugin",
+    "field-editor"
+  ],
+  "description": "A JSON field editor for DatoCMS to lookup routes from different sources such as Jetshop and Findify",
+  "datoCmsPlugin": {
+    "title": "Route resolver",
+    "previewImage": "public/preview.gif",
+    "entryPoint": "public/index.html",
+    "fieldTypes": [
+      "json"
+    ],
+    "pluginType": "field_editor",
+    "parameters": {
+      "global": [
+        {
+          "id": "sources",
+          "label": "Route sources",
+          "type": "json",
+          "hint": "An array containing the route sources along with config options for that specific endpoint."
+        },
+        {
+          "id": "prefixes",
+          "label": "URL prefixes",
+          "type": "json",
+          "hint": "An object containing locales as key and the url for that market as value"
+        }
+      ],
+      "instance": [
+        {
+          "id": "sources",
+          "label": "Sources for this field",
+          "type": "string",
+          "hint": "Comma separated list of sources to use for this specific field. Leave this empty to use all configured sources."
+        }
+      ]
+    }
+  },
+  "files": [
+    "public/*",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "rollup -c",
+    "dev": "rollup -c -w",
+    "start": "sirv public --no-clear"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^17.0.0",
+    "@rollup/plugin-node-resolve": "^11.0.0",
+    "rollup": "^2.3.4",
+    "rollup-plugin-css-only": "^3.1.0",
+    "rollup-plugin-livereload": "^2.0.0",
+    "rollup-plugin-svelte": "^7.0.0",
+    "rollup-plugin-terser": "^7.0.0",
+    "svelte": "^3.0.0"
+  },
+  "dependencies": {
+    "datocms-plugins-sdk": "^0.1.1",
+    "sirv-cli": "^1.0.0"
+  }
+}

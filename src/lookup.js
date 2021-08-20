@@ -106,6 +106,6 @@ export function lookup(url) {
     )
     .catch(() => ({
       source: "No match",
-      url: url.startsWith("/") ? url : `/${url}`,
+      url: (url.startsWith("/") || url.startsWith("http")) ? url : `/${url}`,
     }));
 }
